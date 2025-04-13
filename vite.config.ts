@@ -5,7 +5,17 @@ import manifest from "./manifest.json";
 
 export default defineConfig({
   plugins: [react(), crx({ manifest })],
-  legacy: {
-    skipWebSocketTokenCheck: true,
+  build: {
+    rollupOptions: {
+      input: {
+        popup: "popup.html",
+        contentScript: "src/contentScript.ts",
+      },
+      output: {
+        entryFileNames: () => {
+          return `src/[name].js`;
+        },
+      },
+    },
   },
 });

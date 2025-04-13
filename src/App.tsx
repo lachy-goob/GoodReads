@@ -1,4 +1,4 @@
-import Popup from "./components/Popup";
+import Popup from "./popup";
 
 const App: React.FC = () => {
   return <Popup />;
